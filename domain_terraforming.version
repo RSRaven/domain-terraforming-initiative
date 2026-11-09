@@ -1,0 +1,7 @@
+{
+	"masterVersionFile": "https://raw.githubusercontent.com/RSRaven/domain-terraforming-initiative/main/domain_terraforming.version",
+	"modName": "Domain Terraforming Initiative",
+	"modVersion": {"major": 0, "minor": 4, "patch": 0},
+	"directDownloadURL": "https://github.com/RSRaven/domain-terraforming-initiative/releases/download/v0.4.0/domain-terraforming-initiative-0.4.0.zip",
+	"changelogURL": "https://raw.githubusercontent.com/RSRaven/domain-terraforming-initiative/main/CHANGELOG.md"
+}

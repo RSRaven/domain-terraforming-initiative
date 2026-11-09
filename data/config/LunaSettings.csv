@@ -1,0 +1,64 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+dti_unlockWithoutQuests,Unlock without quests,Boolean,false,,"Every DTI technology counts as found. Without Ashes of the Domain this unlocks every structure. With it, each technology still needs its AoTD research.",,,General
+dti_unlockWithoutResearch,Unlock without AoTD research,Boolean,false,,"With Ashes of the Domain - Vaults of Knowledge: every found DTI technology is unlocked without AoTD research. Until the quests come, every technology in the AoTD tree counts as found.",,,General
+dti_lostColony,When a colony changes owner,Radio,Keep,"Keep, Pause, Remove","What happens to running projects when their colony changes owner. Keep: they go on for the new owner. Pause: they stop until the colony comes back. Remove: the structures are removed.",,,General
+dti_terraforming,Enable terraforming content,Boolean,true,,"Off: no Terraforming Control, no terraforming project, and the terraforming research stays locked. Built ones keep working. Turn it off to use the terraforming of another mod, such as TaSC, DIY Planets or Terraforming Made Easy.",,,Terraforming
+dti_enable_scrubber,Atmospheric Scrubber,Boolean,true,,"Offer the Atmospheric Scrubber (removes toxic atmosphere).",,,Terraforming
+dti_enable_vent,Atmospheric Vent,Boolean,true,,"Offer the Atmospheric Vent (removes dense atmosphere).",,,Terraforming
+dti_enable_accretor,Atmospheric Accretor and Forge,Boolean,true,,"Offer the Atmospheric Accretor and the Atmospheric Forge (thin and no atmosphere).",,,Terraforming
+dti_enable_siphon,Atmospheric Siphon,Boolean,true,,"Offer the Atmospheric Siphon (takes the air away: no atmosphere, and no extreme weather).",,,Terraforming
+dti_enable_deep_core,Deep Core Extractor,Boolean,true,,"Offer the Deep Core Extractor (takes the transplutonic ore away, one level at a time).",,,Terraforming
+dti_enable_volatiles_extractor,Volatiles Extractor,Boolean,true,,"Offer the Volatiles Extractor (takes the volatiles away, one level at a time).",,,Terraforming
+dti_enable_shade,Stellar Shade and Shade Array,Boolean,true,,"Offer the Stellar Shade and the Stellar Shade Array (hot and very hot).",,,Terraforming
+dti_enable_mirror,Stellar Mirror and Mirror Array,Boolean,true,,"Offer the Stellar Mirror and the Stellar Mirror Array (cold and very cold).",,,Terraforming
+dti_enable_crustal,Crustal Stabilizer and Anchor Array,Boolean,true,,"Offer the Crustal Stabilizer and the Crustal Anchor Array (tectonic activity and extreme tectonic activity).",,,Terraforming
+dti_enable_storm,Storm Dampener Grid,Boolean,true,,"Offer the Storm Dampener Grid (removes extreme weather).",,,Terraforming
+dti_enable_reclamation,Reclamation Plant,Boolean,true,,"Offer the Reclamation Plant (removes pollution).",,,Terraforming
+dti_enable_biome,Biome Regulator,Boolean,true,,"Offer the Biome Regulator (removes inimical biosphere).",,,Terraforming
+dti_enable_magnetosphere,Magnetosphere Generator,Boolean,true,,"Offer the Magnetosphere Generator (removes irradiated).",,,Terraforming
+dti_enable_light,Solar Concentrator and Captive Sun,Boolean,true,,"Offer the Solar Concentrator and the Captive Sun (poor light and darkness).",,,Terraforming
+dti_enable_comet,Comet Shepherd,Boolean,true,,"Offer the Comet Shepherd (adds water: desert to arid, arid to terran, terran to a water world).",,,Terraforming
+dti_enable_hydrosphere,Hydrosphere Extractor,Boolean,true,,"Offer the Hydrosphere Extractor (takes water away: a water world to terran, terran to arid, arid to desert).",,,Terraforming
+dti_enable_soil,Soil Conditioner and Gaian Soil Engine,Boolean,true,,"Offer the Soil Conditioner and the Gaian Soil Engine (better farmland: up to rich, then rich to bountiful).",,,Terraforming
+dti_enable_climate,Climate Harmonizer,Boolean,true,,"Offer the Climate Harmonizer (adds mild climate).",,,Terraforming
+dti_enable_marine,Reef Seeder and Ocean Seeding Fleet,Boolean,true,,"Offer the Reef Seeder and the Ocean Seeding Fleet (marine life on water worlds: none to sparse to thriving, then thriving to abundant).",,,Terraforming
+dti_enable_lobster,Lobster Hatchery,Boolean,true,,"Offer the Lobster Hatchery (Volturnian lobster on a water world with abundant marine life). Only in games without Ashes of the Domain - Vaults of Knowledge.",,,Terraforming
+dti_lobsterDiktat,Lobster Hatchery: Diktat standing loss,Int,-200,,"When a Lobster Hatchery finishes on your colony, your standing with the Sindrian Diktat changes by this much. -200: it always ends at -100 (Vengeful). 0: no change.",-200,0,Terraforming
+dti_colonyDevelopment,Enable colony development content,Boolean,true,,"Off: no Colony Development building in the build menu, and its AoTD technology cannot be researched. Built ones keep working.",,,Colony Development
+dti_enable_civic_integration,Civic Integration,Boolean,true,,"Offer Civic Integration (brings a decivilized subpopulation into the colony).",,,Colony Development
+dti_enable_labor_camps,Labor Camps,Boolean,true,,"Offer the Labor Camps (put a decivilized subpopulation to work).",,,Colony Development
+dti_enable_purge,Purge Detachment,Boolean,true,,"Offer the Purge Detachment (removes a decivilized subpopulation by force).",,,Colony Development
+dti_enable_domes,Domed Cities,Boolean,true,,"Offer the domes: Domed Cities, Sky Cities on a gas giant, Seafloor Cities on a water world.",,,Colony Development
+dti_enable_agrav_grid,City Agrav Grid,Boolean,true,,"Offer the City Agrav Grid (with the domes: no high or low gravity).",,,Colony Development
+dti_enable_impact_grid,Impact Defense Grid,Boolean,true,,"Offer the Impact Defense Grid (no meteor impacts).",,,Colony Development
+dti_enable_hydroponics,Hydroponic Farms,Boolean,true,,"Offer Hydroponic Farms (food on a colony with no farmland and no water surface).",,,Colony Development
+dti_civicGrowth,Civic Integration growth bonus in percent of colony size,Int,100,,"After Civic Integration ends, population growth goes up by this share of the colony size. 100: as much as the colony size.",0,500,Colony Development
+dti_civicGrowthDays,Civic Integration growth bonus days,Int,180,,"How long the growth bonus lasts after Civic Integration ends.",0,1000,Colony Development
+dti_laborUpkeepCut,Labor Camps colony upkeep cut in percent,Int,15,,"While the Labor Camps stand, the upkeep of the whole colony goes down by this share.",0,100,Colony Development
+dti_laborStability,Labor Camps stability penalty,Int,1,,"Stability penalty while the Labor Camps stand, on top of the decivilized subpopulation's own.",0,10,Colony Development
+dti_laborShortStability,Labor Camps goods shortage stability penalty,Int,1,,"While any of the Labor Camps' goods is short, their upkeep cut and growth bonus stop, and the colony protests: stability goes down by this much more.",0,10,Colony Development
+dti_laborGrowth,Labor Camps growth bonus in percent of colony size,Int,100,,"While the Labor Camps stand, population growth goes up by this share of the colony size. 100: as much as the colony size.",0,500,Colony Development
+dti_purgeUnrest,Purge Detachment recent unrest,Int,3,,"Recent unrest on the colony when a Purge Detachment finishes.",0,10,Colony Development
+dti_purgeStanding,Purge Detachment standing loss,Int,10,,"Standing lost with each faction that cares about atrocities (in vanilla: the Hegemony, the independents, the Luddic Church and the Persean League) when a Purge Detachment finishes.",0,100,Colony Development
+dti_domeDefense,Domed and Sky Cities ground defense in percent,Int,25,,"Ground defense of a colony with Domed Cities or Sky Cities, in percent of what it would be. 25: a quarter.",1,500,Colony Development
+dti_seafloorDefense,Seafloor Cities ground defense in percent,Int,200,,"Ground defense of a colony with Seafloor Cities, in percent of what it would be. 200: double.",1,500,Colony Development
+dti_projectTimeMult,Project time multiplier,Double,1.0,,"Multiplies the days of every project.",0.1,5,Balance
+dti_buildCostMult,Build cost multiplier,Double,1.0,,"Multiplies the build cost of every project building.",0.1,5,Balance
+dti_goodsMult,Goods multiplier,Double,1.0,,"Multiplies the monthly goods of every project (rounded, at least 1 while above 0).",0,5,Balance
+dti_coreBonusGamma,Gamma core project speed bonus in percent,Int,25,,"Project speed bonus of a gamma core in the project building.",0,300,Balance
+dti_coreBonusBeta,Beta core project speed bonus in percent,Int,50,,"Project speed bonus of a beta core in the project building.",0,300,Balance
+dti_coreBonusAlpha,Alpha core project speed bonus in percent,Int,100,,"Project speed bonus of an alpha core in the project building.",0,300,Balance
+dti_declineAfterDays,Days of shortage before going back,Int,60,,"A shortage that lasts this many days in a row makes the project lose progress.",1,365,Balance
+dti_goingBackNone,Going back speed with no AI core in percent,Int,200,,"How fast progress goes back (no Terraforming Control, or goods short), as a share of normal speed, with no AI core in the project building.",0,500,Balance
+dti_goingBackGamma,Going back speed with a gamma core in percent,Int,150,,"Going back speed with a gamma core in the project building.",0,500,Balance
+dti_goingBackBeta,Going back speed with a beta core in percent,Int,100,,"Going back speed with a beta core in the project building.",0,500,Balance
+dti_goingBackAlpha,Going back speed with an alpha core in percent,Int,50,,"Going back speed with an alpha core in the project building.",0,500,Balance
+dti_controlUpkeepGamma,Control gamma core upkeep cut in percent,Int,15,,"A gamma core in the Terraforming Control cuts the upkeep of the Control and of every terraforming structure on the colony.",0,100,Balance
+dti_controlUpkeepBeta,Control beta core upkeep cut in percent,Int,30,,"The same, for a beta core in the Terraforming Control.",0,100,Balance
+dti_controlUpkeepAlpha,Control alpha core upkeep cut in percent,Int,50,,"The same, for an alpha core in the Terraforming Control.",0,100,Balance
+dti_unrestStopped,Stability penalty: stopped,Int,1,,"Stability penalty while a project is stopped.",0,10,Unrest
+dti_unrestGoingBack,Stability penalty: going back,Int,2,,"Stability penalty while a project goes back.",0,10,Unrest
+dti_unrestRemoved,Recent unrest: project removed,Int,2,,"Recent unrest when you remove a running project, plus 1 for each full quarter of the progress lost.",0,10,Unrest
+dti_falloutStability,Stability penalty: extraction fallout,Int,2,,How much stability a colony loses when an extractor is removed before its deposit is gone. It lasts until the pollution is gone.,0,5,Unrest
+dti_usTargets,Unknown Skies target types,Boolean,true,,"Terraforming can turn worlds into Unknown Skies types (for example Alpine or Savannah).",,,Planet types
+dti_blockUnknownTypes,Block unknown planet types,Boolean,false,,"A planet type with no row of its own in planet_types.csv never changes.",,,Planet types

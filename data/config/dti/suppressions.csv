@@ -1,0 +1,12 @@
+condition,by,note
+no_atmosphere,"domed, sky",
+thin_atmosphere,"domed, sky",
+dense_atmosphere,"domed, sky",
+toxic_atmosphere,"domed, sky",
+extreme_weather,"domed, sky, seafloor",
+inimical_biosphere,"domed, sky, seafloor",
+US_storm,"domed, sky, seafloor",Unknown Skies: Perpetual Dust Storm (weather)
+US_virus,"domed, sky, seafloor",Unknown Skies: Military Virus (biosphere)
+high_gravity,agrav,
+low_gravity,agrav,
+meteor_impacts,impact,

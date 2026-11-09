@@ -1,0 +1,19 @@
+condition,note
+US_floating,Unknown Skies unique world feature
+US_crash,Unknown Skies unique world feature
+US_base,Unknown Skies unique world feature
+US_religious,Unknown Skies unique world feature
+US_cryosanctum,Unknown Skies unique world feature
+US_elevator,Unknown Skies unique world feature
+US_tunnels,Unknown Skies unique world feature
+US_bedrock,Unknown Skies unique world feature
+US_sakura,Unknown Skies unique world feature
+US_unique_filter,Unknown Skies internal marker
+aotd_*,Ashes of the Domain conditions
+IndEvo_*,Industrial Evolution conditions
+rat_*,Random Assortment of Things conditions
+uaf_*,United Aurora Federation conditions
+tme_*,Terraforming Made Easy conditions
+cramped_quarters,TaSC station condition
+terraforming_controller,TaSC project state
+sprite_controller,TaSC graphics state

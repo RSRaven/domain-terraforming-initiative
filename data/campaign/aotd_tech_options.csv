@@ -1,0 +1,42 @@
+id,name,tier,timeToResearch,reqToResearchFirst,itemReqToResearch,iconId,rewards,columnNumber,rowNumber,isResearchedFromStart,otherReq,tags,modId
+dti_tech_planetary_engineering,Planetary Engineering,1,30,"aotd_tech_rudimentary_eq,aotd_tech_ind_base_template",research_databank:8,dti_planetary_engineering,Opens the Domain Terraforming Initiative research:modifier,0,7,false,,,domain_terraforming
+dti_tech_charter,Eridani-Utopia Charter,3,70,"dti_tech_planetary_engineering,aotd_tech_hazmat_equipment,aotd_tech_streamlined_production",research_databank:18,dti_charter,dti_terraforming_control:industry,0,2,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_remediation,Atmospheric Remediation,3,100,"dti_tech_charter,aotd_tech_sophisticated_electronics",research_databank:30,dti_remediation,"dti_atmo_scrubber:industry
+dti_atmo_vent:industry",1,0,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_accretion,Atmospheric Accretion,3,50,dti_tech_charter,research_databank:12,dti_accretion,dti_atmo_accretor:industry,1,2,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_stellar,Stellar Shades and Mirrors,3,50,dti_tech_charter,research_databank:12,dti_stellar,"dti_stellar_shade:industry
+dti_stellar_mirror:industry",1,4,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_forging,Atmospheric Forging,4,100,dti_tech_accretion,"research_databank:30,dti_item_gas_synthesis_worn:1",dti_forging,"dti_atmo_forge:industry
+Lowers the upkeep of Atmospheric Accretors and Forges by 10%:modifier",0,2,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_siphoning,Atmospheric Siphoning,4,50,dti_tech_accretion,research_databank:12,dti_siphoning,dti_atmo_siphon:industry,0,1,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_stellar_arrays,Stellar Arrays,4,100,dti_tech_stellar,"research_databank:30,dti_item_metamaterial_worn:1",dti_stellar_arrays,"dti_stellar_shade_array:industry
+dti_stellar_mirror_array:industry
+Lowers the upkeep of Stellar Shades and Mirrors and their Arrays by 10%:modifier",0,4,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_magnetosphere,Magnetosphere Engineering,3,100,"dti_tech_charter,aotd_tech_sophisticated_electronics",research_databank:30,dti_magnetosphere,dti_magnetosphere_generator:industry,1,1,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_weather,Weather Control,3,50,dti_tech_charter,research_databank:12,dti_weather,dti_storm_dampener_grid:industry,1,3,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_solar,Solar Concentration,3,50,dti_tech_charter,research_databank:12,dti_solar,dti_solar_concentrator:industry,1,5,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_crustal,Crustal Engineering,3,50,dti_tech_charter,research_databank:12,dti_crustal,dti_crustal_stabilizer:industry,1,6,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_reclamation,Ecological Reclamation,3,50,dti_tech_charter,research_databank:12,dti_reclamation,"dti_reclamation_plant:industry
+dti_biome_regulator:industry",1,7,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_artificial_suns,Artificial Suns,4,100,dti_tech_solar,"research_databank:30,dti_item_fusion_ignition_worn:1",dti_artificial_suns,"dti_captive_sun:industry
+Lowers the upkeep of Solar Concentrators and Captive Suns by 10%:modifier",0,5,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_crust_anchoring,Deep Crust Anchoring,4,100,"dti_tech_crustal,aotd_tech_alloy_purification","research_databank:30,dti_item_seismic_damper_worn:1",dti_crust_anchoring,"dti_crustal_anchor_array:industry
+Lowers the upkeep of Crustal Stabilizers and Anchor Arrays by 10%:modifier",0,6,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_cometary,Cometary Hydrology,4,70,dti_tech_accretion,research_databank:18,dti_cometary,dti_comet_shepherd:industry,0,3,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_hydrosphere,Hydrosphere Extraction,3,50,dti_tech_charter,research_databank:12,dti_hydrosphere,dti_hydro_extractor:industry,1,8,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_soil,Soil Engineering,3,50,"dti_tech_charter,aotd_tech_improved_fertilizers",research_databank:12,dti_soil,dti_soil_conditioner:industry,1,9,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_gaian,Gaian Soils,4,100,"dti_tech_soil,aotd_tech_farming_boost","research_databank:30,dti_item_seed_vault_worn:1",dti_gaian,"dti_gaian_soil_engine:industry
+Lowers the upkeep of Soil Conditioners and Gaian Soil Engines by 10%:modifier",0,9,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_climate,Climate Harmony,5,100,"dti_tech_weather,dti_tech_forging,dti_tech_stellar_arrays,dti_tech_cometary,aotd_tech_elysian_project",research_databank:30,dti_climate,dti_climate_harmonizer:industry,0,3,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_marine,Marine Ecology,3,50,"dti_tech_charter,aotd_tech_aquatic_agriculture",research_databank:12,dti_marine,dti_reef_seeder:industry,1,10,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_ocean_gardening,Ocean Gardening,4,100,"dti_tech_marine,aotd_tech_farming_boost","research_databank:30,dti_item_seed_vault_worn:1",dti_ocean_gardening,"dti_ocean_seeding_fleet:industry
+Lowers the upkeep of Reef Seeders and Ocean Seeding Fleets by 10%:modifier",0,10,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_deep_core,Deep Core Extraction,3,50,"dti_tech_charter,aotd_tech_advanced_mining_equipment",research_databank:12,dti_deep_core,"dti_deep_core_extractor:industry
+dti_volatiles_extractor:industry",1,11,false,$dti_terraformingOn:Terraforming must be on in the DTI settings,,domain_terraforming
+dti_tech_colonial_admin,Colonial Administration,1,30,dti_tech_planetary_engineering,research_databank:8,dti_colonial_admin,"dti_civic_integration:industry
+dti_labor_camps:industry
+dti_purge_detachment:industry",1,0,false,$dti_colonyDevelopmentOn:Colony Development must be on in the DTI settings,,domain_terraforming
+dti_tech_sealed_habitats,Sealed Habitats,1,30,"dti_tech_planetary_engineering,aotd_tech_hazmat_equipment",research_databank:8,dti_sealed_habitats,dti_domed_cities:industry,1,12,false,$dti_colonyDevelopmentOn:Colony Development must be on in the DTI settings,,domain_terraforming
+dti_tech_hydroponics,Hydroponic Agriculture,1,30,dti_tech_sealed_habitats,research_databank:8,dti_hydroponics,dti_hydroponic_farms:industry,2,12,false,$dti_colonyDevelopmentOn:Colony Development must be on in the DTI settings,,domain_terraforming
+dti_tech_gravitic_fields,Gravitic Fields,4,100,"dti_tech_sealed_habitats,aotd_tech_sophisticated_electronics",research_databank:30,dti_gravitic_fields,dti_city_agrav_grid:industry,0,13,false,$dti_colonyDevelopmentOn:Colony Development must be on in the DTI settings,,domain_terraforming
+dti_tech_impact_interdiction,Impact Interdiction,3,100,"dti_tech_sealed_habitats,aotd_tech_sophisticated_electronics",research_databank:30,dti_impact_interdiction,dti_impact_defense_grid:industry,1,14,false,$dti_colonyDevelopmentOn:Colony Development must be on in the DTI settings,,domain_terraforming

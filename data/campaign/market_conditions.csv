@@ -1,0 +1,8 @@
+name,id,tags,planetary,decivRemove,script,desc,icon,order
+Project Trouble,dti_terraforming_trouble,,,TRUE,dti.TerraformingTrouble,"A project on $market has stopped, is losing ground, or has left fallout behind. Idle work crews, missed deliveries and poisoned air make the people restless.",graphics/dti/conditions/dti_terraforming_trouble.png,2010
+Integrated Citizens,dti_integrated_citizens,,,TRUE,dti.IntegratedCitizens,"The former decivilized settlements of $market now belong to the colony. Their kin and neighbors follow them in, and for a while the colony grows faster.",graphics/dti/conditions/dti_integrated_citizens.png,2011
+Water Delivered,dti_hydrated,,,TRUE,dti.LadderMarker,"Comet water has just reached $market. The planet type changes at once.",graphics/icons/markets/water_covered.png,2012
+Water Drawn Off,dti_dried,,,TRUE,dti.LadderMarker,"Water has just been drawn off $market. The planet type changes at once.",graphics/icons/markets/arid_world.png,2013
+Sparse Marine Life,dti_marine_sparse,,TRUE,,dti.MarineLife,"A few hardy kinds of fish and kelp live in the seas of $market, in patches far apart. Fishing crews bring home a catch, but a small one.",graphics/dti/conditions/dti_marine_sparse.png,71
+Thriving Marine Life,dti_marine_thriving,,TRUE,,dti.MarineLife,"Kelp forests and shoals of fish fill the shallow seas of $market. The food web holds together by itself, and the fishing crews bring home a steady catch.",graphics/dti/conditions/dti_marine_thriving.png,71
+Abundant Marine Life,dti_marine_abundant,,TRUE,,dti.MarineLife,"Reefs, kelp forests and great shoals of fish fill the seas of $market, from the sunlit shallows down to the deep trenches. Every fishing crew comes home with full nets.",graphics/dti/conditions/dti_marine_abundant.png,71
