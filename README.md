@@ -2,7 +2,7 @@
 
 A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming Control on a colony, then run long projects that change the world's conditions and, in the end, its planet type.
 
-**Version 0.4.0 is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues).
+**Version 0.4.1 is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues).
 
 ## What it adds
 
@@ -29,7 +29,7 @@ Tested with Nexerelin, AoTD, DIY Planets and TaSC.
 
 The quests are not in the mod yet.
 - **With AoTD:** research the techs on the DTI tab.
-- **Without AoTD:** turn on **Unlock without quests** in the LunaLib settings (DTI, General tab). Without it, nothing unlocks.
+- **Without AoTD:** every structure is unlocked from the start. The LunaLib setting **Unlock without quests** (DTI, General tab) does this, and it is on by default until the quests are in the mod.
 
 ## Install
 

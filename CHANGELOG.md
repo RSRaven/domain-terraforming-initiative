@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- **Unlock without quests** is on by default: without AoTD, every structure is unlocked from the start. With AoTD, the research still unlocks them. The setting goes back to off when the quests are in the mod. A game that already saved this setting in LunaLib keeps its value.
+
 ## 0.4.0
 
 The first public test version.
