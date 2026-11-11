@@ -237,6 +237,11 @@ public class ProjectStructure extends BaseIndustry {
         placeOrbit();
     }
 
+    /** {@link dti.CaptiveSun} swaps an old Fusion Lamp for its star. */
+    public void swapOrbit(Map<SectorEntityToken, SectorEntityToken> swapped) {
+        if (orbit != null) orbit.replaceAll(e -> swapped.getOrDefault(e, e));
+    }
+
     /** Places its objects in orbit once; a project started before 2026-11-05 gets them when it finishes. */
     private void placeOrbit() {
         DtiData.Structure s = DtiData.structure(getId());
@@ -576,15 +581,15 @@ public class ProjectStructure extends BaseIndustry {
     /** The price paid (the game saves it as the override), else the menu price: the step's cost, after the build cost setting. */
     private float paidCost() {
         Float paid = getBuildCostOverride();
-        return paid != null ? paid : stepCost() * DtiSettings.number("dti_buildCostMult", 1f);
+        return paid != null ? paid : price(market == null ? null : DtiData.target(getId(), market), getSpec());
     }
 
-    /** The credits for the step this structure would run: its row's cost mult, else the industries.csv cost mult. */
-    private float stepCost() {
-        DtiData.Project p = market == null ? null : DtiData.target(getId(), market);
-        if (p == null || p.cost == null) return getSpec().getCost();
+    /** The menu price of a step: its row's cost mult, else the industries.csv cost, after the build cost setting. */
+    public static float price(DtiData.Project p, com.fs.starfarer.api.loading.IndustrySpecAPI spec) {
         // The game turns a cost mult into credits this way when it loads industries.csv.
-        return p.cost * Global.getSettings().getFloat("creditsPerCostUnit") * Global.getSettings().getFloat("industryBuildCostMult");
+        float cost = p == null || p.cost == null ? spec.getCost()
+                : p.cost * Global.getSettings().getFloat("creditsPerCostUnit") * Global.getSettings().getFloat("industryBuildCostMult");
+        return cost * DtiSettings.number("dti_buildCostMult", 1f);
     }
 
     // ---- AI cores: the core here sets the speed; the Control's core cuts the upkeep ----
@@ -716,7 +721,7 @@ public class ProjectStructure extends BaseIndustry {
     }
 
     /** The colony's system has a star whose light the Solar Concentrator and the Mirrors can use ({@link Light#realStar}). */
-    static boolean realStar(MarketAPI market) {
+    public static boolean realStar(MarketAPI market) {
         StarSystemAPI system = market.getStarSystem();
         if (system == null) return false;
         List<Boolean> blackHoles = new ArrayList<>();

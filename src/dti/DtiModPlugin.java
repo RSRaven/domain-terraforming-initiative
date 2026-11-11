@@ -18,6 +18,8 @@ public class DtiModPlugin extends BaseModPlugin {
     @Override
     public void onGameLoad(boolean newGame) {
         ProjectsIntel.ensure();
+        PlanetIntel.ensureAll();
+        Global.getSector().addTransientScript(new CaptiveSun());
         if (!Unlocks.aotd()) return;
         if (!LunaSettings.hasSettingsListenerOfClass(TabSync.class)) LunaSettings.addSettingsListener(new TabSync());
         // AoTD rebuilds its tab list in its own onGameLoad, so sync on the first frame, after every mod has loaded.

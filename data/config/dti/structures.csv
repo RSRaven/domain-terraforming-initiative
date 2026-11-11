@@ -16,7 +16,7 @@ dti_reclamation_plant,,dti_tech_reclamation,dti_enable_reclamation,,,,,,seed_vau
 dti_biome_regulator,,dti_tech_reclamation,dti_enable_biome,,,,,,seed_vault
 dti_magnetosphere_generator,,dti_tech_magnetosphere,dti_enable_magnetosphere,,,,,,ion_shield
 dti_solar_concentrator,1,dti_tech_solar,dti_enable_light,,,,,,photon_lens
-dti_captive_sun,2,dti_tech_artificial_suns,dti_enable_light,fusion_lamp,1,,,,fusion_ignition
+dti_captive_sun,2,dti_tech_artificial_suns,dti_enable_light,star_yellow,1,,,,fusion_ignition
 dti_comet_shepherd,,dti_tech_cometary,dti_enable_comet,,,,,,gravitic_tether
 dti_hydro_extractor,,dti_tech_hydrosphere,dti_enable_hydrosphere,,,,,,gravitic_tether
 dti_soil_conditioner,1,dti_tech_soil,dti_enable_soil,,,,TRUE,,seed_vault

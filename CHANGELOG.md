@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+- **A calm Captive Sun:** a small yellow star in orbit, in place of the pulsing lamp. It still lights the planet's night side. A Captive Sun you built before turns into the star when you load the game.
+- **Planet history:** in the Terraforming tab of the Intel screen, each planet with a Terraforming Control gets an entry with DTI's events and their dates. It stays when you lose the colony, and you can delete it. A save from before 0.4.2 gets an entry for each colony that has a Control.
+- A console command for tests: `dti_sun`.
+
 ## 0.4.1
 
 - **Unlock without quests** is on by default: without AoTD, every structure is unlocked from the start. With AoTD, the research still unlocks them. The setting goes back to off when the quests are in the mod. A game that already saved this setting in LunaLib keeps its value.

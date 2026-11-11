@@ -292,8 +292,9 @@ public final class Terraform {
     }
 
     /**
-     * Vanilla stellar shades, mirrors or a fusion lamp (the Captive Sun) in orbit, placed when the project starts and kept
-     * as a monument when it ends: not clickable, no tooltip, no effect on the colony. The lamp's own plugin glows and lights the planet. Shades go on the star side, the others behind. They circle the planet as fast as the body that circles the star
+     * Vanilla stellar shades or mirrors, or a small star (the Captive Sun, an entity type that starts with "star_"), in
+     * orbit, placed when the project starts and kept as a monument when it ends: not clickable, no tooltip, no effect on
+     * the colony. {@link CaptiveSun} lights the planet from its star. Shades go on the star side, the others behind. They circle the planet as fast as the body that circles the star
      * (the planet, or its gas giant for a moon), so they keep their place. A moon's own orbit adds a few degrees of drift.
      */
     public static List<SectorEntityToken> addOrbitObjects(MarketAPI market, String entityType, int count) {
@@ -309,8 +310,13 @@ public final class Terraform {
         float toStar = star == null ? 0f : Misc.getAngleInDegrees(planet.getLocation(), star.getLocation());
         float base = toStar + (Entities.STELLAR_SHADE.equals(entityType) ? 0f : 180f);
         for (int i = 0; i < count; i++) {
+            float angle = base + (i - (count - 1) / 2f) * 30f;
+            if (entityType.startsWith("star_")) {
+                out.add(CaptiveSun.add(planet, entityType, angle, radius, period));
+                continue;
+            }
             SectorEntityToken e = planet.getContainingLocation().addCustomEntity(null, null, entityType, Factions.NEUTRAL);
-            e.setCircularOrbitPointingDown(planet, base + (i - (count - 1) / 2f) * 30f, radius, period);
+            e.setCircularOrbitPointingDown(planet, angle, radius, period);
             e.addTag(Tags.NON_CLICKABLE);
             e.addTag(Tags.NO_ENTITY_TOOLTIP);
             out.add(e);
@@ -321,6 +327,7 @@ public final class Terraform {
     /** Takes these objects out of their star system. */
     public static void removeOrbitObjects(List<SectorEntityToken> objects) {
         for (SectorEntityToken e : objects) {
+            CaptiveSun.unlight(e);
             if (e.getContainingLocation() != null) e.getContainingLocation().removeEntity(e);
         }
     }
@@ -336,5 +343,6 @@ public final class Terraform {
         intel.setIcon(Global.getSector().getPlayerFaction().getCrest());
         intel.setSound(BaseIntelPlugin.getSoundStandardUpdate());
         Global.getSector().getCampaignUI().addMessage(intel, MessageClickAction.COLONY_INFO, market);
+        PlanetIntel.note(market, title + (lines.length == 0 ? "" : ". " + String.join("; ", lines)));
     }
 }

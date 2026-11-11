@@ -62,6 +62,17 @@ public class ProjectsIntel extends BaseIntelPlugin {
         return "DTI Projects";
     }
 
+    /** First in the tab, then the Terraforming Survey, then the planet files. */
+    @Override
+    public String getSortString() {
+        return "0";
+    }
+
+    /** A line of text that may hold a "%": the game reads a plain line as a format, so it goes in as the one value. */
+    static void line(TooltipMakerAPI info, String text, Color color, float pad) {
+        info.addPara("%s", pad, color, text);
+    }
+
     @Override
     public String getIcon() {
         return Global.getSettings().getSpriteName("intel", "new_planet_info");
@@ -272,7 +283,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
      * A wide button under a line: it lights up under the mouse, as the rows of the colony list do, and a click opens the
      * colony ({@link #buttonPressConfirmed}). Added first, so the texts lie on top of it.
      */
-    private static void hover(CustomPanelAPI line, String marketId, float w, float h, TooltipMakerAPI.TooltipCreator tip) {
+    static void hover(CustomPanelAPI line, String marketId, float w, float h, TooltipMakerAPI.TooltipCreator tip) {
         TooltipMakerAPI back = line.createUIElement(w, h, false);
         back.addAreaCheckbox("", marketId, Misc.getBasePlayerColor(), Misc.getDarkPlayerColor(), Misc.getBrightPlayerColor(), w, h, 0f);
         if (tip != null) back.addTooltipToPrevious(tip, TooltipMakerAPI.TooltipLocation.RIGHT);
@@ -300,7 +311,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
         };
     }
 
-    private static TooltipMakerAPI.TooltipCreator text(final String s) {
+    static TooltipMakerAPI.TooltipCreator text(final String s) {
         return new BaseTooltipCreator() {
             @Override
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object param) {
@@ -337,7 +348,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
     }
 
     /** One row of filter buttons with its label; the chosen one is checked. Returns the y below the row. */
-    private static float buttons(CustomPanelAPI panel, float y, String label, Object[] ids, String[] names, Object chosen) {
+    static float buttons(CustomPanelAPI panel, float y, String label, Object[] ids, String[] names, Object chosen) {
         float x = 0f, labelW = 60f, bh = 20f;
         TooltipMakerAPI l = panel.createUIElement(labelW, bh, false);
         l.addPara(label, 3f);
@@ -368,7 +379,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
     }
 
     /** Opens the colony's screen, as a vanilla COLONY_INFO message does. */
-    private static void openColony(Object marketId) {
+    static void openColony(Object marketId) {
         MarketAPI market = Global.getSector().getEconomy().getMarket((String) marketId);
         if (market != null) Global.getSector().getCampaignUI().showCoreUITab(CoreUITabId.OUTPOSTS, market);
     }

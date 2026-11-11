@@ -20,6 +20,13 @@ public class TerraformingControl extends BaseIndustry {
         super.apply(true);
     }
 
+    /** A planet with a built Control gets its DTI history entry (planet-history.md). */
+    @Override
+    protected void buildingFinished() {
+        super.buildingFinished();
+        if (dti.PlanetIntel.get(market) != null) dti.PlanetIntel.note(market, getCurrentName() + " built");
+    }
+
     @Override
     public boolean isAvailableToBuild() {
         return super.isAvailableToBuild() && DtiSettings.terraforming() && market.getPlanetEntity() != null && Unlocks.unlocked(getId());

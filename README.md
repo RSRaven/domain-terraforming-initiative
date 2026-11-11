@@ -36,9 +36,13 @@ The quests are not in the mod yet.
 1. Unzip the folder into `Starsector/mods`.
 2. Enable "Domain Terraforming Initiative" in the launcher (or in TriOS).
 
-Start a new game if you can: marine life is placed on water worlds only when a new sector is made. Do not remove the mod from a save: the save needs its structures.
+You can add DTI to a running game. It misses only the marine life that a new sector places on some water worlds; a Reef Seeder can still bring marine life to a water world.
+
+You cannot remove DTI from a save. Once you save a game with DTI on, that save needs DTI to load, even if you never built or researched anything from it. Keep a copy of your save from before you add DTI.
 
 ## Credits
+
+Thanks to Alex and the Fractal Softworks team for building Starsector, a great game with the room for mods like this one.
 
 Inspired by **DIY Planets** (kentington, now the community edition) and **Terraforming & Station Construction** (boggled). This mod takes ideas only: it has no code, text or art from them. The art was made for this mod.
 
