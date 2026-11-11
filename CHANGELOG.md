@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3
+
+- **Comet Shepherd on Barren-Desert:** a Barren-Desert with no hard condition (very cold, very hot, no, thin or toxic atmosphere, irradiated, darkness) was stuck: no structure could change its type. The Comet Shepherd now works there and makes it Arid.
+
 ## 0.4.2
 
 - **A calm Captive Sun:** a small yellow star in orbit, in place of the pulsing lamp. It still lights the planet's night side. A Captive Sun you built before turns into the star when you load the game.

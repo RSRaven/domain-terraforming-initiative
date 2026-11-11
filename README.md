@@ -1,8 +1,10 @@
 # Domain Terraforming Initiative
 
+![A barren world becomes a jungle world](forum/banner.jpg)
+
 A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming Control on a colony, then run long projects that change the world's conditions and, in the end, its planet type.
 
-**Version 0.4.1 is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues).
+**This is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues).
 
 ## What it adds
 
@@ -12,7 +14,15 @@ A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming 
 - **24 special items** that make projects faster or cheaper. They wear out.
 - **Projects take goods.** A short supply stops a project, and a long one makes it lose progress.
 - **DTI Projects** in the Intel screen (Terraforming tag): every running project, by colony.
+- **Planet history:** each planet with a Terraforming Control gets an entry in the same tab, with DTI's events and their dates. It stays when you lose the colony, and you can delete it.
+- **The Captive Sun** lights a dark world with a small star of its own.
 - **Settings** in LunaLib: switch terraforming or Colony Development off, turn single kinds of projects off, and change the numbers.
+
+## Pictures
+
+![The same planet: Barren, Barren-Desert, Jungle](forum/s4-before-after.jpg)
+
+Every structure with its picture and its game text, by group: [the Terraforming Control](forum/structures-01-terraforming-control.png), [atmosphere](forum/structures-02-atmosphere.png), [temperature](forum/structures-03-temperature.png), [light](forum/structures-04-light.png), [tectonics, weather, pollution, biosphere, radiation](forum/structures-05-tectonics.png), [water](forum/structures-06-water.png), [soil](forum/structures-07-soil-and-farmland.png), [marine life](forum/structures-08-marine-life.png), [climate](forum/structures-09-climate.png), [reverse projects](forum/structures-10-reverse-projects.png), [Colony Development](forum/structures-11-colony-development.png). And [the 24 items](forum/items.png).
 
 ## Requirements
 
@@ -21,7 +31,7 @@ A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming 
 
 Optional:
 - **Ashes of the Domain (Vaults of Knowledge):** the structures come with research, on their own tab with 28 techs. The AoTD workshop can make our items.
-- **Console Commands:** test commands `DTI_Unlock`, `DTI_Status`, `DTI_Progress` and `DTI_Short`.
+- **Console Commands:** test commands `DTI_Unlock`, `DTI_Status`, `DTI_Progress`, `DTI_Short` and `DTI_Sun`.
 
 Tested with Nexerelin, AoTD, DIY Planets and TaSC.
 
@@ -40,11 +50,31 @@ You can add DTI to a running game. It misses only the marine life that a new sec
 
 You cannot remove DTI from a save. Once you save a game with DTI on, that save needs DTI to load, even if you never built or researched anything from it. Keep a copy of your save from before you add DTI.
 
+## What comes next
+
+The plan by version, with no dates. It can change, mostly from what you report.
+
+- **0.4.5:** achievements (with MagicLib, which stays optional), the old and the new planet in the history when a world changes its type, small ecology events with a choice during long projects, and Eridani-Utopia contracts to terraform other factions' worlds.
+- **0.5:** the DTI Planner in the Intel screen: pick a colony and a goal, and it queues the structures for you. It also shows what a planet you surveyed can become.
+- **0.5.5:** a terraforming black market, a shop for DTI items.
+- **0.6:** the hypershunt line (Perihelion), the Genesis line (a new planet from an asteroid belt), and stations.
+- **0.7:** the quests: the unlock paths and some hidden content.
+- **0.8:** AI factions terraform their own worlds.
+- **0.9:** AI raids on your research, and a smarter AI.
+- **1.0:** the full release, after the last tests and bug fixes.
+
 ## Credits
 
 Thanks to Alex and the Fractal Softworks team for building Starsector, a great game with the room for mods like this one.
 
-Inspired by **DIY Planets** (kentington, now the community edition) and **Terraforming & Station Construction** (boggled). This mod takes ideas only: it has no code, text or art from them. The art was made for this mod.
+Inspired by **DIY Planets** (kentington, now the community edition) and **Terraforming & Station Construction** (boggled). This mod takes ideas only: it has no code, text or art from them. The art was made for this mod; the pictures of the Stellar Shade and the Stellar Mirror in `forum/` are the base game's.
+
+## AI use
+
+- Art (building pictures, item icons, tech icons and condition icons): Gemini Flash in the Gemini web app, Gemini 3 Flash or 3.5 Flash (the web app does not show which).
+- Texts: Claude Opus 5.5, as a text helper that helped proofread and fix issues in the texts.
+
+No extra training data was used.
 
 ## For modders
 
