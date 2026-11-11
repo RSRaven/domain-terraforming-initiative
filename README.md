@@ -4,7 +4,7 @@
 
 A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming Control on a colony, then run long projects that change the world's conditions and, in the end, its planet type.
 
-**This is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues).
+**This is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues) or in the [forum thread](https://fractalsoftworks.com/forum/index.php?topic=36308.0).
 
 ## What it adds
 
@@ -57,7 +57,7 @@ The plan by version, with no dates. It can change, mostly from what you report.
 - **0.4.5:** achievements (with MagicLib, which stays optional), the old and the new planet in the history when a world changes its type, small ecology events with a choice during long projects, and Eridani-Utopia contracts to terraform other factions' worlds.
 - **0.5:** the DTI Planner in the Intel screen: pick a colony and a goal, and it queues the structures for you. It also shows what a planet you surveyed can become.
 - **0.5.5:** a terraforming black market, a shop for DTI items.
-- **0.6:** the hypershunt line (Perihelion), the Genesis line (a new planet from an asteroid belt), and stations.
+- **0.6:** the hypershunt line, the planet creation line, and stations.
 - **0.7:** the quests: the unlock paths and some hidden content.
 - **0.8:** AI factions terraform their own worlds.
 - **0.9:** AI raids on your research, and a smarter AI.
