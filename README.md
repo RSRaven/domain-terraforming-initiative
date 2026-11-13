@@ -14,7 +14,9 @@ A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming 
 - **24 special items** that make projects faster or cheaper. They wear out.
 - **Projects take goods.** A short supply stops a project, and a long one makes it lose progress.
 - **DTI Projects** in the Intel screen (Terraforming tag): every running project, by colony.
-- **Planet history:** each planet with a Terraforming Control gets an entry in the same tab, with DTI's events and their dates. It stays when you lose the colony, and you can delete it.
+- **Planet history:** each planet with a Terraforming Control gets an entry in the same tab, with DTI's events and their dates. When a world changes its type, the entry shows the old and the new planet side by side. It stays when you lose the colony, and you can delete it.
+- **Ecology events:** sometimes a long project gets an event with a choice, good or bad, and now and then a disaster. Crews that finished 3 projects of a structure know the work: fewer disasters, more good news, lower costs.
+- **Eridani-Utopia contracts:** after your first terraforming project, an official of a faction that likes you can ask you at a bar to fix a condition of their world. Bring the goods, in parts if you like, and get paid when the last part arrives.
 - **The Captive Sun** lights a dark world with a small star of its own.
 - **Settings** in LunaLib: switch terraforming or Colony Development off, turn single kinds of projects off, and change the numbers.
 
@@ -31,7 +33,8 @@ Every structure with its picture and its game text, by group: [the Terraforming 
 
 Optional:
 - **Ashes of the Domain (Vaults of Knowledge):** the structures come with research, on their own tab with 28 techs. The AoTD workshop can make our items.
-- **Console Commands:** test commands `DTI_Unlock`, `DTI_Status`, `DTI_Progress`, `DTI_Short` and `DTI_Sun`.
+- **MagicLib:** four achievements, two of them hidden.
+- **Console Commands:** test commands `DTI_Unlock`, `DTI_Status`, `DTI_Progress`, `DTI_Short`, `DTI_Sun`, `DTI_Event` and `DTI_Contract`.
 
 Tested with Nexerelin, AoTD, DIY Planets and TaSC.
 
@@ -54,7 +57,6 @@ You cannot remove DTI from a save. Once you save a game with DTI on, that save n
 
 The plan by version, with no dates. It can change, mostly from what you report.
 
-- **0.4.5:** achievements (with MagicLib, which stays optional), the old and the new planet in the history when a world changes its type, small ecology events with a choice during long projects, and Eridani-Utopia contracts to terraform other factions' worlds.
 - **0.5:** the DTI Planner in the Intel screen: pick a colony and a goal, and it queues the structures for you. It also shows what a planet you surveyed can become.
 - **0.5.5:** a terraforming black market, a shop for DTI items.
 - **0.6:** the hypershunt line, the planet creation line, and stations.

@@ -1,0 +1,5 @@
+id,name,description,tooltip,script,image,spoilerLevel,rarity
+dti_firstStep,World Shaper,Finished a terraforming project.,,dti.achievements.DtiAchievement,,VISIBLE,COMMON
+dti_secondTerra,Second Terra,Made a terran world.,,dti.achievements.DtiAchievement,,VISIBLE,RARE
+dti_utopia,Utopia,Made a terran world with a mild climate.,,dti.achievements.DtiAchievement,,SPOILER,EPIC
+dti_breadbasket,Breadbasket,Brought a world to Bountiful Farmland or Abundant Marine Life.,,dti.achievements.DtiAchievement,,SPOILER,RARE

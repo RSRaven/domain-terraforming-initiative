@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A standing Colony Development building that suppresses conditions while it works (ADR 0011): the City Agrav Grid and
+ * A standing Colony Development building that suppresses conditions while it works: the City Agrav Grid and
  * the Impact Defense Grid; the domes add their costs in {@link Domes}. Its list is its row in suppressions.csv: the
  * data column of industries.csv names it ("agrav", "impact"). With nothing to do it stays, and its upkeep goes on.
  */
@@ -55,7 +55,7 @@ public class SupportStructure extends BaseIndustry {
 
     /**
      * The conditions DTI's own support structures suppress on this colony. Terraforming still works on them: the build
-     * menu offers their projects, and a project's hazard cut leaves them out (domed-cities.md, Rules).
+     * menu offers their projects, and a project's hazard cut leaves them out.
      */
     public static Set<String> suppressedHere(MarketAPI market) {
         Set<String> out = new LinkedHashSet<>();
@@ -114,7 +114,7 @@ public class SupportStructure extends BaseIndustry {
         return super.isAvailableToBuild() && offered() && (!by().needsDomes() || domesBuilt(market));
     }
 
-    /** The domes are built, not under construction (city-agrav-grid.md). */
+    /** The domes are built, not under construction. */
     private static boolean domesBuilt(MarketAPI market) {
         Industry domes = market.getIndustry(DOMES);
         return domes != null && !domes.isBuilding();

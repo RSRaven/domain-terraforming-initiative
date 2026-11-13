@@ -5,7 +5,7 @@ import dti.IntegratedCitizens;
 
 import java.util.List;
 
-/** Civic Integration (docs/features/colony-development.md): a project; at the end the colony grows faster for a while. */
+/** Civic Integration: a project; at the end the colony grows faster for a while. */
 public class CivicIntegration extends ProjectStructure {
     @Override
     protected void projectFinished(List<String> lines) {

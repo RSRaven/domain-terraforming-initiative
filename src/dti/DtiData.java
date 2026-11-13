@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import dti.logic.Area;
 import dti.logic.Cells;
+import dti.logic.Ecology;
 import dti.logic.Items;
 import dti.logic.Overview;
 import dti.logic.ProjectRow;
@@ -15,7 +16,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-/** The DTI data files (docs/data-formats.md), loaded once at game start, merged with other mods' rows. */
+/** The DTI data files, loaded once at game start, merged with other mods' rows. */
 public final class DtiData {
     private DtiData() {}
 
@@ -29,11 +30,11 @@ public final class DtiData {
         public final String id, tier, tech, setting, orbitEntity;
         public final int orbitCount;
         public final Area area;
-        /** Repeat mode (ADR 0010): after a step, it starts its next step instead of removing itself. */
+        /** Repeat mode: after a step, it starts its next step instead of removing itself. */
         public final boolean repeat;
-        /** Only in games without AoTD Vaults of Knowledge: with AoTD it never shows (the Lobster Hatchery, ADR 0014). */
+        /** Only in games without AoTD Vaults of Knowledge: with AoTD it never shows (the Lobster Hatchery). */
         public final boolean noAotd;
-        /** The item family that fits it (docs/features/special-items.md), or blank. An unknown family is ignored. */
+        /** The item family that fits it, or blank. An unknown family is ignored. */
         public final String item;
 
         Structure(Map<String, String> r) {
@@ -72,6 +73,9 @@ public final class DtiData {
     private static Map<Support.By, Set<String>> suppressions = new EnumMap<>(Support.By.class);
     private static Set<String> changeable = Collections.emptySet();
     private static TypeLadder ladder;
+    private static final List<Ecology.Event> ecologyEvents = new ArrayList<>();
+    /** contract_texts.csv: project id -> {blurb, option, problem}. */
+    private static final Map<String, String[]> contractTexts = new HashMap<>();
 
     public static void load() throws Exception {
         boolean aotd = Unlocks.aotd();
@@ -109,6 +113,16 @@ public final class DtiData {
                 // Another mod's condition that is not in this game: a typo, or a mod that is off.
                 if (Global.getSettings().getMarketConditionSpec(c) == null) log.info("DTI: suppressions.csv names a condition this game does not have: " + c);
             }
+        }
+        for (Map<String, String> r : rows("id", "ecology_events.csv")) {
+            try {
+                ecologyEvents.add(new Ecology.Event(r));
+            } catch (RuntimeException e) {
+                log.error("DTI: bad row in ecology_events.csv: " + r, e);
+            }
+        }
+        for (Map<String, String> r : rows("project", "contract_texts.csv")) {
+            contractTexts.put(r.get("project"), new String[]{r.get("blurb"), r.get("option"), r.get("problem")});
         }
         changeable = Overview.changeable(projects.values(), suppressions.values());
         log.info("DTI: loaded " + structures.size() + " structures, " + projects.size() + " projects");
@@ -163,6 +177,21 @@ public final class DtiData {
         return structures.containsKey(industryId) && !CONTROL.equals(industryId);
     }
 
+    /** The rows of ecology_events.csv. */
+    public static List<Ecology.Event> ecologyEvents() {
+        return ecologyEvents;
+    }
+
+    /** The contract texts of a project: {blurb, option, problem}, with {person}, {market}, {condition}, {structure}, {aStructure}, {AStructure}; or null. */
+    public static String[] contractText(String projectId) {
+        return contractTexts.get(projectId);
+    }
+
+    public static Ecology.Event ecologyEvent(String id) {
+        for (Ecology.Event e : ecologyEvents) if (e.id.equals(id)) return e;
+        return null;
+    }
+
     public static Project project(String id) {
         return projects.get(id);
     }
@@ -193,7 +222,7 @@ public final class DtiData {
 
     /**
      * The tech of this structure's line: the tech of the tier 2 structure that has the same setting (the Stellar Shade:
-     * Stellar Arrays), or null. Once researched, it cuts the upkeep of the whole line (research-gating.md, 2026-11-05).
+     * Stellar Arrays), or null. Once researched, it cuts the upkeep of the whole line.
      */
     public static String lineTech(String structureId) {
         Structure s = structures.get(structureId);

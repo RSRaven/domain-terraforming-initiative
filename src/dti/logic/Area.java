@@ -1,7 +1,7 @@
 package dti.logic;
 
 /**
- * The content area of a structure (ADR 0011): the area column of structures.csv. Each area has its own LunaLib switch,
+ * The content area of a structure: the area column of structures.csv. Each area has its own LunaLib switch,
  * and the AoTD memory flag that DTI sets while that switch is on (the otherReq column of our techs).
  */
 public enum Area {

@@ -3,7 +3,7 @@ package dti;
 import com.fs.starfarer.api.Global;
 import dti.logic.UnlockRule;
 
-/** Is a DTI structure unlocked for the player (ADR 0007)? Every other class asks here. */
+/** Is a DTI structure unlocked for the player? Every other class asks here. */
 public final class Unlocks {
     private Unlocks() {}
 

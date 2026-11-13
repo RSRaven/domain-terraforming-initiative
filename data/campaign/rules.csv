@@ -1,0 +1,23 @@
+id,trigger,conditions,script,text,options,notes
+dtiContractBlurbBar,dtiContract_blurbBar,,,$dtiContract_blurb,,The texts of each project: data/config/dti/contract_texts.csv
+dtiContractOptionBar,dtiContract_optionBar,,,,dtiContract_startBar:$dtiContract_option,
+dtiContractOfferBeginBar,DialogOptionSelected,$option == dtiContract_startBar,"$missionId = dtiContract
+FireBest DtiContractOfferText",,"contact_acceptBar:Accept
+contact_declineBarNoContinue:Decline",
+dtiContractOfferText,DtiContractOfferText,,SetTextHighlights $dtiContract_goodsList $dtiContract_cargo $dtiContract_reward,"""$dtiContract_intro"" $HeOrShe turns the survey toward you. ""$dtiContract_problem""
+
+""Bring $dtiContract_goodsList here: $dtiContract_cargo units of cargo. You can bring it in parts. We pay you $dtiContract_reward when the last part arrives. With your goods and your Eridani-Utopia plans, our crews can do the rest.""",,Eridani-Utopia contracts: the first line is one of three (ContractMission.INTROS)
+dtiContractDeliverGreetingNone,PickGreeting,"$dtiContract_needsGoods score:1000
+Call $dtiContract_ref updateData
+!$dtiContract_playerHasSome","ShowPersonVisual
+FireAll PopulateOptions","""We still need $dtiContract_remaining for the $dtiContract_structureName project.""",,
+dtiContractDeliverGreeting,PickGreeting,"$dtiContract_needsGoods score:1000
+Call $dtiContract_ref updateData
+$dtiContract_playerHasSome",ShowPersonVisual,"""You brought goods for the $dtiContract_structureName project? Good. We still need $dtiContract_remaining.""","dtiContract_deliver:Deliver what you carry
+cutCommLink:Cut the comm link",
+dtiContractDeliverOptionSel,DialogOptionSelected,$option == dtiContract_deliver,"Call $dtiContract_ref deliver
+FireBest DtiContractDeliveredText
+Call $dtiContract_ref finishIfDone
+FireAll PopulateOptions",,,
+dtiContractDeliveredPart,DtiContractDeliveredText,!$dtiContract_allDelivered,,"""Thank you. We still need $dtiContract_remaining.""",,
+dtiContractDeliveredAll,DtiContractDeliveredText,$dtiContract_allDelivered,,"""That is all of it. Here is your payment. Our crews start the work today.""",,

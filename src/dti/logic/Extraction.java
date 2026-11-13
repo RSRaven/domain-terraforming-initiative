@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The Deep Core Extractor and the Volatiles Extractor (docs/features/reverse-projects.md): the yield while one works,
+ * The Deep Core Extractor and the Volatiles Extractor: the yield while one works,
  * and the fallout when it is removed before its deposit is gone.
  */
 public final class Extraction {
@@ -27,7 +27,7 @@ public final class Extraction {
     }
 
     /**
-     * The removal of an extractor poisons the colony (decided 2026-10-25), in any step: it is not DTI's own end (its last
+     * The removal of an extractor poisons the colony, in any step: it is not DTI's own end (its last
      * step took the deposit away, or it ended with nothing changed), the colony has the owner it had at the start, and the
      * deposit is still there.
      */
@@ -38,7 +38,7 @@ public final class Extraction {
     /**
      * The conditions after the fallout: pollution, and toxic atmosphere in place of thin or dense atmosphere. Toxic air
      * also blocks habitable in vanilla, so habitable goes, and mild climate with it ({@link TypeLadder#dropMildClimate}).
-     * A world with no atmosphere gets pollution only (decided 2026-10-25). The type ladder runs after this.
+     * A world with no atmosphere gets pollution only. The type ladder runs after this.
      */
     public static Set<String> afterFallout(Set<String> conditions) {
         Set<String> out = new LinkedHashSet<>(conditions);

@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * The planet type ladder (ADR 0006): archetypes plus ordered rules.
+ * The planet type ladder: archetypes plus ordered rules.
  * Data comes from planet_types.csv and type_rules.csv; the game is asked through {@link Env}.
  */
 public final class TypeLadder {
@@ -16,7 +16,7 @@ public final class TypeLadder {
     public static final class TypeRow {
         public final String type, archetype;
         public final boolean blocked;
-        /** The farmland a planet of this type gets at least on arrival, and at most (docs/features/farmland-set.md). */
+        /** The farmland a planet of this type gets at least on arrival, and at most. */
         public final Farmland farmlandFloor, farmlandBest;
 
         public TypeRow(String type, String archetype, boolean blocked) {
@@ -179,7 +179,7 @@ public final class TypeLadder {
 
     /**
      * The type change a project causes: run the ladder on the conditions from the project start and on the
-     * conditions now. If both runs give the same type, nothing changes (ADR 0006, "before and after").
+     * conditions now. If both runs give the same type, nothing changes ("before and after").
      */
     public Result change(String type, Set<String> before, Set<String> after, Env env) {
         Result b = run(type, before, env);
@@ -204,7 +204,7 @@ public final class TypeLadder {
 
     /**
      * Vanilla allows mild climate only with habitable (condition_gen_data.csv, requiresAll): when habitable goes, by a
-     * ladder rule or by the extraction fallout ({@link Extraction#afterFallout}), mild climate goes too (the user, 2026-10-25).
+     * ladder rule or by the extraction fallout ({@link Extraction#afterFallout}), mild climate goes too.
      */
     public static void dropMildClimate(Set<String> conditions) {
         if (!conditions.contains(HABITABLE)) conditions.remove(MILD_CLIMATE);

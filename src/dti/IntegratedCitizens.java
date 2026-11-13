@@ -9,7 +9,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
 /**
- * After Civic Integration (docs/features/colony-development.md): more population growth for a while, then the
+ * After Civic Integration: more population growth for a while, then the
  * condition removes itself.
  */
 public class IntegratedCitizens extends BaseMarketConditionPlugin implements MarketImmigrationModifier {

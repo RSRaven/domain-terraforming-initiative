@@ -14,7 +14,7 @@ import dti.DtiSettings;
 import java.util.List;
 
 /**
- * Purge Detachment (docs/features/colony-development.md): a fast project; at the end an atrocity, recent unrest, and
+ * Purge Detachment: a fast project; at the end an atrocity, recent unrest, and
  * standing lost with the factions that care about atrocities, the way vanilla saturation bombardment does it.
  */
 public class PurgeDetachment extends ProjectStructure {

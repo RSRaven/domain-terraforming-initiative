@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.5
+
+- **Before and after:** when DTI changes a planet's type, its entry in the planet history shows the old and the new planet side by side.
+- **Planet history** is easier to read: the date, a title, then one line for each change.
+- **Achievements** (with MagicLib; DTI still runs without it): World Shaper, Second Terra, and two hidden ones.
+- **Ecology events:** sometimes a long project gets an event with a choice, in the Terraforming tab of the Intel screen: 16 events, good, bad and disasters. After you finish 3 projects of a structure, its crews know the work: disasters are rarer, good news more common, and the costs lower. With no answer in 30 days, the last choice applies. A LunaLib setting turns them off.
+- **Eridani-Utopia contracts:** after your first terraforming project, an official of a faction that likes you (standing above +30) can ask you at a bar to fix a condition of their world. Bring a big cargo of goods, in parts if you like: they pay you when the last part arrives, and the work ends some months later. With AoTD, a contract asks AoTD goods only when one of your colonies makes them.
+- Console commands for tests: `dti_event` and `dti_contract`.
+
 ## 0.4.3
 
 - **Comet Shepherd on Barren-Desert:** a Barren-Desert with no hard condition (very cold, very hot, no, thin or toxic atmosphere, irradiated, darkness) was stuck: no structure could change its type. The Comet Shepherd now works there and makes it Arid.

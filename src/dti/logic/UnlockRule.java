@@ -2,7 +2,7 @@ package dti.logic;
 
 import java.util.function.BooleanSupplier;
 
-/** Is a structure unlocked (ADR 0007)? Pure: dti.Unlocks feeds it the save flag, the settings and AoTD. */
+/** Is a structure unlocked? Pure: dti.Unlocks feeds it the save flag, the settings and AoTD. */
 public final class UnlockRule {
     private UnlockRule() {}
 
@@ -18,7 +18,7 @@ public final class UnlockRule {
         if (noAotd && aotd) return false;
         if (cheat) return true;
         if (!aotd) return withoutQuests;
-        // M1 has no quests and AoTD shows every tech in its tree, so with AoTD every tech counts as found.
+        // DTI has no quests yet, and AoTD shows every tech in its tree, so with AoTD every tech counts as found.
         return withoutResearch || researched.getAsBoolean();
     }
 }

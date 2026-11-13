@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The effect of a DTI item (docs/features/special-items.md), for the game's item menus and tooltips. It changes nothing
+ * The effect of a DTI item, for the game's item menus and tooltips. It changes nothing
  * by itself: ProjectStructure reads the installed item for the speed, the goods and the wear.
  */
 public class ItemEffect extends BaseInstallableItemEffect {

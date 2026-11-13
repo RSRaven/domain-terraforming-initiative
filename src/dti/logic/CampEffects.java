@@ -1,7 +1,7 @@
 package dti.logic;
 
 /**
- * What the Labor Camps do now (docs/features/colony-development.md). While any of their goods is short, the good parts
+ * What the Labor Camps do now. While any of their goods is short, the good parts
  * stop (the upkeep cut and the growth bonus) and the population protests (more stability loss). The bad parts that
  * always apply (stability, Luddic Path interest) are not here. Pure: the caller passes the settings.
  */

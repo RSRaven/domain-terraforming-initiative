@@ -27,7 +27,7 @@ public class DtiModPlugin extends BaseModPlugin {
     }
 
     /**
-     * ADR 0011: the DTI tab of the AoTD research screen shows while at least one area is on. Each area's memory flag
+     * The DTI tab of the AoTD research screen shows while at least one area is on. Each area's memory flag
      * (the otherReq of its techs) is set while its switch is on.
      */
     static final class TabSync implements LunaSettingsListener, EveryFrameScript {

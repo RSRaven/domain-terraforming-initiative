@@ -24,7 +24,9 @@ import com.fs.starfarer.api.util.Misc;
 import dti.*;
 import dti.logic.Area;
 import dti.logic.Cells;
+import dti.logic.Ecology;
 import dti.logic.Extraction;
+import dti.logic.Firsts;
 import dti.logic.Items;
 import dti.logic.Light;
 import dti.logic.Pollution;
@@ -46,7 +48,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Every DTI project structure (ADR 0005). Vanilla builds it; then it runs the project that its data rows describe.
+ * Every DTI project structure. Vanilla builds it; then it runs the project that its data rows describe.
  * While the project runs, isBuilding() and isUpgrading() are both true: vanilla draws the progress bar and keeps
  * the colony's build queue free. The progress lives in our own saved fields, not in vanilla's buildProgress.
  */
@@ -60,6 +62,8 @@ public class ProjectStructure extends BaseIndustry {
     protected LinkedHashSet<String> conditionsAtStart;
     protected String ownerAtStart;
     protected boolean ended;
+    /** Running days to the next ecology event. Null until the first day, and in a save from before 0.4.5. */
+    protected Float eventIn;
     /** Repeat mode: the step it works on, from 1. Saves from before 2b have 0, which counts as 1. */
     protected int step;
     /** Its objects in orbit (structures.csv orbitEntity), placed when the project starts; they go if it ends unfinished. */
@@ -87,7 +91,7 @@ public class ProjectStructure extends BaseIndustry {
         return Math.max(1, step);
     }
 
-    /** Repeat mode (ADR 0010): after a step it starts its next one instead of removing itself. */
+    /** Repeat mode: after a step it starts its next one instead of removing itself. */
     public boolean repeat() {
         DtiData.Structure s = DtiData.structure(getId());
         return s != null && s.repeat;
@@ -110,7 +114,7 @@ public class ProjectStructure extends BaseIndustry {
         return p == null ? 1f : Math.max(1f, p.days * DtiSettings.number("dti_projectTimeMult", 1f));
     }
 
-    /** Terraforming or Colony Development (ADR 0011); a structure with no row counts as terraforming. */
+    /** Terraforming or Colony Development; a structure with no row counts as terraforming. */
     public Area area() {
         DtiData.Structure s = DtiData.structure(getId());
         return s == null ? Area.TERRAFORMING : s.area;
@@ -170,7 +174,7 @@ public class ProjectStructure extends BaseIndustry {
         return m != null && m.kind == Misfit.Kind.BLOCKED ? m.what : null;
     }
 
-    /** A pollution cleanup cannot work while a building on the colony keeps polluting (docs/features/hazard-set.md). */
+    /** A pollution cleanup cannot work while a building on the colony keeps polluting. */
     private boolean keepsPolluting(DtiData.Project p) {
         return p != null && Conditions.POLLUTION.equals(p.condition) && pollutionSource(market) != null;
     }
@@ -194,9 +198,9 @@ public class ProjectStructure extends BaseIndustry {
 
     /**
      * The good of the mining deposit this project takes away (vanilla's ResourceDepositsCondition: a deposit that Mining
-     * works), or null. Such a project is an extraction, with a yield and a fallout (docs/data-formats.md, deposit rows).
+     * works), or null. Such a project is an extraction, with a yield and a fallout.
      */
-    static String depositGood(DtiData.Project p) {
+    public static String depositGood(DtiData.Project p) {
         String good = p == null ? null : ResourceDepositsCondition.COMMODITY.get(p.condition);
         return good != null && Industries.MINING.equals(ResourceDepositsCondition.INDUSTRY.get(good)) ? good : null;
     }
@@ -242,7 +246,7 @@ public class ProjectStructure extends BaseIndustry {
         if (orbit != null) orbit.replaceAll(e -> swapped.getOrDefault(e, e));
     }
 
-    /** Places its objects in orbit once; a project started before 2026-11-05 gets them when it finishes. */
+    /** Places its objects in orbit once; a project started before 0.4.0 gets them when it finishes. */
     private void placeOrbit() {
         DtiData.Structure s = DtiData.structure(getId());
         if (orbit == null && s != null && !s.orbitEntity.isEmpty() && market.getPrimaryEntity() != null) {
@@ -274,9 +278,20 @@ public class ProjectStructure extends BaseIndustry {
             refresh();
             reapply();
             TerraformingTrouble.sync(market);
+            // Only a day of real work counts: not stopped, going back or waiting.
+            if (state == State.RUNNING) ecologyDay();
         }
         shortageDays = ProjectClock.shortageDays(shortageDays, state, shortGoods, days);
         addProgress(speed() * days);
+    }
+
+    /** One running day nearer to the next ecology event: at most one a year (dti.logic.Ecology). */
+    private void ecologyDay() {
+        if (eventIn == null) eventIn = Ecology.firstGap(Misc.random);
+        eventIn -= 1f;
+        if (eventIn > 0f) return;
+        eventIn = Ecology.nextGap(Misc.random);
+        EcologyIntel.start(this);
     }
 
     /** False when the project ended. */
@@ -288,7 +303,7 @@ public class ProjectStructure extends BaseIndustry {
         }
         Misfit m = misfit(p);
         if (m != null && m.kind != Misfit.Kind.BLOCKED) {
-            // Repeat mode (ADR 0010): it removes itself only when no step is left.
+            // Repeat mode: it removes itself only when no step is left.
             DtiData.Project next = repeat() ? DtiData.nextStep(getId(), step(), market) : null;
             if (next == null) {
                 endUnused(work() + " ended", misfitText(m) + " Nothing changed.");
@@ -343,6 +358,7 @@ public class ProjectStructure extends BaseIndustry {
         // A blocker holds it (DTI_Progress or FastBuild while it waits): it finishes when the blocker is gone.
         if (m != null) return;
         String oldType = typeId();
+        PlanetIntel.typeBefore(market, oldType);
         Set<String> before = Terraform.conditionIds(market);
         Set<String> after = p.after(before);
         List<String> lines = new ArrayList<>();
@@ -372,7 +388,7 @@ public class ProjectStructure extends BaseIndustry {
         }
         // A marker never stays: the ladder rule that used it removed it, or no rule did.
         if (marker && market.hasCondition(p.adds)) Terraform.removeCondition(market, p.adds);
-        // The meteor rule (impact-defense-grid.md): a real atmosphere burns the meteors up.
+        // The meteor rule: a real atmosphere burns the meteors up.
         if (Support.meteorsBurnUp(Terraform.conditionIds(market)) && Terraform.removeCondition(market, Support.METEORS)) {
             lines.add(Terraform.conditionName(Support.METEORS) + " removed");
         }
@@ -382,6 +398,15 @@ public class ProjectStructure extends BaseIndustry {
         placeOrbit();
         orbit = null;
         String newType = typeId();
+        // Experience for the ecology events: the finished projects of this structure.
+        if (market.isPlayerOwned()) {
+            MemoryAPI sector = Global.getSector().getMemoryWithoutUpdate();
+            sector.set(Ecology.doneKey(getId()), sector.getInt(Ecology.doneKey(getId())) + 1);
+        }
+        // The achievements: DTI only sets the keys, so it needs no MagicLib.
+        if (area() == Area.TERRAFORMING && market.isPlayerOwned()) {
+            for (String id : Firsts.earned(oldType, before, newType, Terraform.conditionIds(market))) Global.getSector().getMemoryWithoutUpdate().set("$" + id, true);
+        }
         if (!newType.equals(oldType)) lines.add("Planet type: " + Terraform.typeName(oldType) + " -> " + Terraform.typeName(newType));
         lines.addAll(ProjectRow.levelLines(before, Terraform.conditionIds(market)));
         if (habitable) lines.add(Terraform.conditionName("habitable") + " restored");
@@ -399,7 +424,7 @@ public class ProjectStructure extends BaseIndustry {
     }
 
     /**
-     * A DTI item stays installed while its project runs (the user, 2026-11-05): it wears only at the end, so taking it
+     * A DTI item stays installed while its project runs: it wears only at the end, so taking it
      * out a few days before would keep it as it was. The game's "Manage item..." menu is greyed out then; a shutdown
      * still gives the item back unchanged. An item can still go into a project that has none.
      */
@@ -470,7 +495,7 @@ public class ProjectStructure extends BaseIndustry {
     }
 
     /**
-     * Ends with nothing changed: on the player's colony, the refund a shutdown would give now (the user, 2026-10-23),
+     * Ends with nothing changed: on the player's colony, the refund a shutdown would give now,
      * so none in step 2 or later of repeat mode.
      */
     private void endUnused(String title, String... lines) {
@@ -542,7 +567,7 @@ public class ProjectStructure extends BaseIndustry {
             for (Map.Entry<String, Integer> e : goods(p).entrySet()) demand(e.getKey(), e.getValue());
             // An extraction yields only while its project runs; AI cores add nothing (no vanilla supply bonus here).
             if (depositGood(p) != null && state() == State.RUNNING) supply(depositGood(p), yieldNow(p));
-            // A condition that DTI's own support structures suppress has no hazard to cut (domed-cities.md).
+            // A condition that DTI's own support structures suppress has no hazard to cut.
             float removed = SupportStructure.suppressedHere(market).contains(p.condition) ? 0f : Terraform.hazard(p.condition);
             float cut = ProjectClock.hazardCut(removed, Terraform.hazard(p.adds), progress / totalDays());
             market.getHazard().modifyFlat(getModId(), -cut, getNameForModifier());
@@ -594,7 +619,7 @@ public class ProjectStructure extends BaseIndustry {
 
     // ---- AI cores: the core here sets the speed; the Control's core cuts the upkeep ----
 
-    /** research-gating.md (2026-11-05): a researched tier 2 tech cuts the upkeep of its whole line ({@link DtiData#lineTech}). */
+    /** A researched tier 2 tech cuts the upkeep of its whole line ({@link DtiData#lineTech}). */
     public static final float RESEARCH_UPKEEP_MULT = 0.9f;
     private static final String RESEARCH_UPKEEP_KEY = "dti_research_upkeep";
 
@@ -664,7 +689,7 @@ public class ProjectStructure extends BaseIndustry {
         return DtiData.ladder().marker(p.adds) && newType(market, p) == null ? null : p;
     }
 
-    /** The build menu, before the colony's conditions: the structure's area allows it (ADR 0011), it is unlocked and turned on. */
+    /** The build menu, before the colony's conditions: the structure's area allows it, it is unlocked and turned on. */
     static boolean menuAllows(String id, MarketAPI market) {
         DtiData.Structure s = DtiData.structure(id);
         if (s == null || !s.area.allows(DtiSettings.on(s.area.setting), market.getIndustry(DtiData.CONTROL) != null) || !Unlocks.unlocked(id)) return false;
@@ -672,7 +697,7 @@ public class ProjectStructure extends BaseIndustry {
     }
 
     /**
-     * The planet type after this project as the tooltip shows it, or null when the type stays: the ladder preview (ADR 0006)
+     * The planet type after this project as the tooltip shows it, or null when the type stays: the ladder preview
      * from the conditions at the start of a running project, or from the conditions now.
      */
     public String typeAfter(DtiData.Project p) {
@@ -686,7 +711,7 @@ public class ProjectStructure extends BaseIndustry {
         return r == null || r.rules.isEmpty() ? null : r;
     }
 
-    /** The planet type after this project, by the ladder preview (ADR 0006), or null when the type stays. */
+    /** The planet type after this project, by the ladder preview, or null when the type stays. */
     static String newType(MarketAPI market, DtiData.Project p) {
         Set<String> now = Terraform.conditionIds(market);
         TypeLadder.Result r = Terraform.typeChange(market, now, p.after(now));
@@ -863,7 +888,7 @@ public class ProjectStructure extends BaseIndustry {
     }
 
     /**
-     * Repeat mode (ADR 0010): every step this structure will do on this colony, in order, from the one it works on or
+     * Repeat mode: every step this structure will do on this colony, in order, from the one it works on or
      * would start with; where it stops; and when removal is free.
      */
     private void addSteps(TooltipMakerAPI tooltip, DtiData.Project p) {

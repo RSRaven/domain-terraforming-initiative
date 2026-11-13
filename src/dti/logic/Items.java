@@ -7,15 +7,15 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 /**
- * The DTI special items (docs/features/special-items.md): 12 families in two tiers, ids
+ * The DTI special items: 12 families in two tiers, ids
  * {@code dti_item_<family>_worn} and {@code dti_item_<family>_pristine}. Worn gives +25% speed only; Pristine gives
- * +50% speed and its second effect: 50% fewer basic goods, or for the deposits family 50% more yield (2026-10-26).
+ * +50% speed and its second effect: 50% fewer basic goods, or for the deposits family 50% more yield.
  */
 public final class Items {
     private Items() {}
 
     public static final String PREFIX = "dti_item_", WORN = "_worn", PRISTINE = "_pristine";
-    /** The Lithic Catalyst: more yield instead of fewer goods (decided 2026-10-25). */
+    /** The Lithic Catalyst: more yield instead of fewer goods. */
     public static final String YIELD_FAMILY = "lithic_catalyst";
 
     public static String id(String family, boolean pristine) {
@@ -58,7 +58,7 @@ public final class Items {
     }
 
     /**
-     * The item after its project or its repeat-mode step ends (decided 2026-10-25): with the work done, a Pristine item
+     * The item after its project or its repeat-mode step ends: with the work done, a Pristine item
      * becomes Worn and a Worn one is used up (null). With nothing changed it comes back as it was. Another mod's item
      * never wears.
      */
@@ -78,7 +78,7 @@ public final class Items {
     }
 
     /**
-     * The AoTD workshop (special-items.md, Sources): a tech teaches both tiers of the item family of every structure it
+     * The AoTD workshop: a tech teaches both tiers of the item family of every structure it
      * unlocks. Adds one structures.csv row, its tech and item cells, to the map tech -> item ids; a blank cell adds nothing.
      */
     public static void addTaught(Map<String, Set<String>> byTech, String tech, String family) {
@@ -89,7 +89,7 @@ public final class Items {
     }
 
     /**
-     * research-gating.md (2026-11-06): a tier 2 tech needs a Worn item of its structure for research, so every tech of
+     * A tier 2 tech needs a Worn item of its structure for research, so every tech of
      * that structure's line (the same setting) teaches that item too, and the workshop can make it first. Today this adds
      * only the Fusion Ignition Core to Solar Concentration. Rows: tech, tier, setting, item family.
      */

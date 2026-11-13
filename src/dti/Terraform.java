@@ -45,7 +45,7 @@ public final class Terraform {
 
     /**
      * The colony's conditions that something else suppresses (an item, a building of the base game or another mod). Not
-     * those DTI's own support structures suppress: terraforming still works on them (domed-cities.md).
+     * those DTI's own support structures suppress: terraforming still works on them.
      */
     public static Set<String> suppressed(MarketAPI market) {
         Set<String> ids = new LinkedHashSet<>();
@@ -124,7 +124,7 @@ public final class Terraform {
                 DtiSettings.on("dti_blockUnknownTypes"));
     }
 
-    /** The ladder's answer for a project that takes the planet from {@code before} to {@code after} (ADR 0006). */
+    /** The ladder's answer for a project that takes the planet from {@code before} to {@code after}. */
     public static TypeLadder.Result typeChange(MarketAPI market, Set<String> before, Set<String> after) {
         PlanetAPI planet = market.getPlanetEntity();
         if (planet == null) return null;
@@ -343,6 +343,6 @@ public final class Terraform {
         intel.setIcon(Global.getSector().getPlayerFaction().getCrest());
         intel.setSound(BaseIntelPlugin.getSoundStandardUpdate());
         Global.getSector().getCampaignUI().addMessage(intel, MessageClickAction.COLONY_INFO, market);
-        PlanetIntel.note(market, title + (lines.length == 0 ? "" : ". " + String.join("; ", lines)));
+        PlanetIntel.note(market, title, lines);
     }
 }

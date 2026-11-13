@@ -2,7 +2,7 @@ package dti.logic;
 
 import java.util.Set;
 
-/** A farmland level, for the farmlandFloor and farmlandBest columns of planet_types.csv (docs/features/farmland-set.md). */
+/** A farmland level, for the farmlandFloor and farmlandBest columns of planet_types.csv. */
 public enum Farmland {
     NONE, POOR, ADEQUATE, RICH, BOUNTIFUL;
 
@@ -39,7 +39,7 @@ public enum Farmland {
     }
 
     /**
-     * The farmland after the ladder changes the planet type (docs/features/farmland-set.md, "When the type changes"): at
+     * The farmland after the ladder changes the planet type: at
      * least the new type's floor, at most its best level. Mild climate raises a best level that is not none by one step,
      * up to bountiful; it never raises the floor. A drying step (the ladder used dti_dried) has no floor: the farmland
      * stays, at most the best level. From a water world, the caller passes {@link #fromMarine} as {@code now}.
@@ -51,7 +51,7 @@ public enum Farmland {
     }
 
     /**
-     * The soil a drained sea leaves (docs/features/water-set.md): the marine life's food bonus becomes the farmland's.
+     * The soil a drained sea leaves: the marine life's food bonus becomes the farmland's.
      * No marine life (+0) gives adequate, sparse (+1) rich, thriving (+2) bountiful; abundant (+3) also bountiful, the best there is.
      */
     public static Farmland fromMarine(int food) {

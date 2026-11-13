@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Farming and Aquaculture when a project changes the world (docs/features/farmland-set.md): no swap. A world that becomes
+ * Farming and Aquaculture when a project changes the world: no swap. A world that becomes
  * water loses Farming and its chain; a world that stops being water loses Aquaculture and its chain. A land world that
  * loses all its farmland loses Farming.
  */
@@ -16,7 +16,7 @@ public final class FoodBuildings {
 
     public static final String FARMING = "farming", AQUACULTURE = "aquaculture";
 
-    /** The marine life conditions, worst to best (docs/features/marine-biosphere.md). */
+    /** The marine life conditions, worst to best. */
     public static final List<String> MARINE = Arrays.asList("dti_marine_sparse", "dti_marine_thriving", "dti_marine_abundant");
 
     /** The flat food a marine life condition adds to Aquaculture and to each building of its chain: +1, +2, +3; 0 for any other condition. */
@@ -30,8 +30,8 @@ public final class FoodBuildings {
     }
 
     /**
-     * A world that is not water and loses all its farmland loses vanilla Farming, which then makes no food (the user,
-     * 2026-10-26). Only Farming itself: AoTD's Monoculture Plots, Subsidised Farming and Artisanal Farming need farmland
+     * A world that is not water and loses all its farmland loses vanilla Farming, which then makes no food.
+     * Only Farming itself: AoTD's Monoculture Plots, Subsidised Farming and Artisanal Farming need farmland
      * to be built, but make food with none (a flat supply), so they stay.
      */
     public static boolean farmlandLost(boolean isWater, Farmland before, Farmland after) {

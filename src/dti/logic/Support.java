@@ -8,8 +8,8 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 /**
- * The support structures of milestone 4, the pure part: the domes and their three looks (docs/features/domed-cities.md),
- * the City Agrav Grid, the Impact Defense Grid, Hydroponic Farms, and the meteor rule (docs/features/impact-defense-grid.md).
+ * The support structures, the pure part: the domes and their three looks,
+ * the City Agrav Grid, the Impact Defense Grid, Hydroponic Farms, and the meteor rule.
  */
 public final class Support {
     private Support() {}

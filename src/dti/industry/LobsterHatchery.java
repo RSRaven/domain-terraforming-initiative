@@ -12,7 +12,7 @@ import dti.logic.Standing;
 import java.util.List;
 
 /**
- * Lobster Hatchery (docs/features/marine-biosphere.md): at the end, on the player's colony, the player's standing with the
+ * Lobster Hatchery: at the end, on the player's colony, the player's standing with the
  * Sindrian Diktat drops by the setting, never below -100. The way Purge Detachment changes standing.
  */
 public class LobsterHatchery extends ProjectStructure {

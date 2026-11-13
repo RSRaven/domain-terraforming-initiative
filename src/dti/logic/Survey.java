@@ -3,9 +3,9 @@ package dti.logic;
 import java.util.*;
 
 /**
- * The best plan for a planet (docs/features/terraforming-intel.md): the fewest DTI steps to the lowest hazard, and with
+ * The best plan for a planet: the fewest DTI steps to the lowest hazard, and with
  * the same hazard to the type with the best farmland. Each step
- * is a projects.csv row that the menu would offer, then the type ladder (ADR 0006), and it lowers the hazard or changes
+ * is a projects.csv row that the menu would offer, then the type ladder, and it lowers the hazard or changes
  * the type. For the Terraforming Survey and the planet file. A search by breadth, so the first plan that reaches a
  * state has the fewest steps.
  */

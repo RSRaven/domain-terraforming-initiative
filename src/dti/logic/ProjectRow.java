@@ -3,7 +3,7 @@ package dti.logic;
 import java.util.*;
 
 /**
- * The pure part of a projects.csv row (docs/data-formats.md): what it works on, where it fits, and what it changes.
+ * The pure part of a projects.csv row: what it works on, where it fits, and what it changes.
  * DtiData.Project adds the goods, which need the game to check.
  */
 public class ProjectRow {
@@ -138,7 +138,7 @@ public class ProjectRow {
      * not. A blocker comes last, so BLOCKED means everything else fits.
      * <p>
      * Levels ({@link #LEVELS}): a row that adds a farmland or a marine life level does not fit a planet that has that
-     * level or a better one. Farmland (docs/features/farmland-set.md): nor a planet whose type cannot have it ({@link Farmland#top}).
+     * level or a better one. Farmland: nor a planet whose type cannot have it ({@link Farmland#top}).
      *
      * @param suppressed   conditions that count as gone for the row's own condition (the menu); empty for a running project
      * @param farmlandBest the best farmland of the planet's type (planet_types.csv), before mild climate
@@ -246,7 +246,7 @@ public class ProjectRow {
     }
 
     /**
-     * Repeat mode (ADR 0010): the row a structure starts when its step ends, done or no longer fitting
+     * Repeat mode: the row a structure starts when its step ends, done or no longer fitting
      * ({@link #firstOrBlocked}), or null: no step is left, or this was step {@link #MAX_STEPS}, and it removes itself.
      */
     public static <R extends ProjectRow> R next(List<R> rows, int step, Set<String> conditions, Set<String> suppressed, String archetype, Farmland farmlandBest) {

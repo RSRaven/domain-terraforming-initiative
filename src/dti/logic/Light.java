@@ -3,7 +3,7 @@ package dti.logic;
 import java.util.Collection;
 
 /**
- * Light for the Solar Concentrator and the Stellar Mirrors (docs/features/hazard-set.md). Pure: the caller passes plain
+ * Light for the Solar Concentrator and the Stellar Mirrors. Pure: the caller passes plain
  * values from the system.
  */
 public final class Light {
@@ -19,7 +19,7 @@ public final class Light {
         return !nebula && !deepSpace && blackHoles.contains(false);
     }
 
-    /** The star column of projects.csv (ADR 0013): where a project row is offered. */
+    /** The star column of projects.csv: where a project row is offered. */
     public enum Star {
         /** Blank: any system. */
         ANY,

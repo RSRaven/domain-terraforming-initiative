@@ -20,7 +20,7 @@ public class TerraformingControl extends BaseIndustry {
         super.apply(true);
     }
 
-    /** A planet with a built Control gets its DTI history entry (planet-history.md). */
+    /** A planet with a built Control gets its DTI history entry. */
     @Override
     protected void buildingFinished() {
         super.buildingFinished();

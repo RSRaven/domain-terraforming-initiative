@@ -23,15 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The Captive Sun is a small vanilla star in orbit (captive-sun-look.md). A star lights only its system, so this script
+ * The Captive Sun is a small vanilla star in orbit. A star lights only its system, so this script
  * gives the planet's night side its light, as the vanilla Fusion Lamp did, and keeps every Captive Sun at one size.
  * On load it turns the Fusion Lamps of DTI 0.4.1 and older into stars.
  */
 public final class CaptiveSun implements EveryFrameScript {
     public static final String TAG = "dti_captive_sun";
-    /** Sector memory: a radius set with the DTI_Sun console command, for the size test. */
+    /** Sector memory: a radius set with the DTI_Sun console command, to try other sizes. */
     public static final String RADIUS_KEY = "$dti_captiveSunRadius";
-    /** The user's pick in the 0.4.2 test (2026-11-11), of 25, 35, 50 and 70. */
+    /** The normal radius of every Captive Sun, unless DTI_Sun set another. */
     public static final float RADIUS = 25f;
     private static final Color LIGHT = new Color(255, 225, 170);
     private static final Color NO_LIGHT = new Color(0, 0, 0, 0);

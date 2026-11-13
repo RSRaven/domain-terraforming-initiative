@@ -38,12 +38,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The "DTI Projects" Intel entry (docs/features/projects-overview.md): every running project on the player's colonies,
+ * The "DTI Projects" Intel entry: every running project on the player's colonies,
  * with filters and sorts, and a click on a row opens the colony. One per game, added at load. It saves only the chosen
  * filters and sort: the rows are rebuilt from the player's markets each time it draws.
  */
 public class ProjectsIntel extends BaseIntelPlugin {
-    /** The tag TaSC uses for its projects (docs/features/projects-overview.md). */
+    /** The tag TaSC uses for its projects. */
     public static final String TAG = "Terraforming";
 
     // Saved with the game.
@@ -85,7 +85,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
         return tags;
     }
 
-    /** Hidden while both areas are off (ADR 0011). */
+    /** Hidden while both content areas are off. */
     @Override
     public boolean isHidden() {
         return super.isHidden() || !DtiSettings.on(Area.TERRAFORMING.setting) && !DtiSettings.on(Area.COLONY.setting);
@@ -171,7 +171,7 @@ public class ProjectsIntel extends BaseIntelPlugin {
         head.addPara(Overview.summary(all) + ". Click a line to open the colony.", Misc.getGrayColor(), 0f);
         panel.addUIElement(head).inTL(0, top);
         top += 25f;
-        // A save from before 2026-11-09 may hold Stopped or Going back, which have no button now.
+        // A save from before 0.4.0 may hold Stopped or Going back, which have no button now.
         if (stateFilter == StateFilter.STOPPED || stateFilter == StateFilter.GOING_BACK) stateFilter = StateFilter.PROBLEMS;
         top = buttons(panel, top, "State:", new Object[]{StateFilter.ALL, StateFilter.RUNNING, StateFilter.PROBLEMS},
                 new String[]{"All", "Running", "Problems"}, stateFilter);

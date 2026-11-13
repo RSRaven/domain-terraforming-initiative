@@ -14,7 +14,7 @@ import dti.logic.Support;
 import java.math.BigDecimal;
 
 /**
- * The domes (docs/features/domed-cities.md): one building with three looks, Domed Cities, Sky Cities and Seafloor Cities.
+ * The domes: one building with three looks, Domed Cities, Sky Cities and Seafloor Cities.
  * The look follows the planet each time it applies. While the domes work: their list is suppressed, the colony's
  * maximum size is one less, its ground defense changes, and its Cryorevival Facility stays disrupted.
  */

@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Parsers for the cells of DTI data files (docs/data-formats.md). */
+/** Parsers for the cells of DTI data files. */
 public final class Cells {
     private Cells() {}
 

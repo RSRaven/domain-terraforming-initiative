@@ -1,7 +1,7 @@
 package dti.logic;
 
 /**
- * Speed, shortage and unrest rules of a running project (docs/features/project-rules.md).
+ * Speed, shortage and unrest rules of a running project.
  * Progress is counted in days of work, from 0 to the project's total days.
  */
 public final class ProjectClock {
@@ -79,7 +79,7 @@ public final class ProjectClock {
 
     /**
      * The build cost the game should see for a running project. The game pays back that cost x its own share
-     * (industryRefundFraction). Repeat mode (ADR 0010): from step 2 on it is 0, so no refund: the price, paid once
+     * (industryRefundFraction). Repeat mode: from step 2 on it is 0, so no refund: the price, paid once
      * before step 1, covered every step, and the finished steps stay.
      */
     public static float refundCost(float cost, int step) {
@@ -88,7 +88,7 @@ public final class ProjectClock {
 
     /**
      * The credits a shutdown of a running project gives back: what the game pays for {@link #refundCost}, cost x its
-     * share. Also what a project that ends with nothing changed gives back (the user, 2026-10-23).
+     * share. Also what a project that ends with nothing changed gives back.
      */
     public static float shutdownRefund(float cost, float gameShare, int step) {
         return refundCost(cost, step) * gameShare;
@@ -115,7 +115,7 @@ public final class ProjectClock {
     }
 
     /**
-     * Repeat mode (ADR 0015): removal causes no unrest from step 2 on, at any progress, so the player can stop at the
+     * Repeat mode: removal causes no unrest from step 2 on, at any progress, so the player can stop at the
      * level they want. Step 1 follows the normal removal rules: its build cost was just paid.
      */
     public static boolean freeRemoval(int step) {

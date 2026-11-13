@@ -2,7 +2,7 @@ package dti.logic;
 
 import java.util.Collection;
 
-/** Is a building a pollution source (docs/features/hazard-set.md)? Pure: the caller passes plain values from the colony. */
+/** Is a building a pollution source? Pure: the caller passes plain values from the colony. */
 public final class Pollution {
     private Pollution() {}
 

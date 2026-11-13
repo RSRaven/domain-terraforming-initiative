@@ -9,7 +9,7 @@ import org.lazywizard.console.BaseCommand;
 import org.lazywizard.console.CommonStrings;
 import org.lazywizard.console.Console;
 
-/** DTI_Sun <radius>|add|reset: for the Captive Sun size test (captive-sun-look.md). */
+/** DTI_Sun <radius>|add|reset: to test the Captive Sun's size. */
 public class DtiSun implements BaseCommand {
     @Override
     public CommandResult runCommand(String args, CommandContext context) {

@@ -11,7 +11,7 @@ import dti.logic.FoodBuildings;
 import java.util.Set;
 
 /**
- * Marine life (docs/features/marine-biosphere.md): a flat food bonus to Aquaculture and to every building of its upgrade
+ * Marine life: a flat food bonus to Aquaculture and to every building of its upgrade
  * chain (AoTD's Fishing Harbour). Not vanilla's ResourceDepositsCondition: that would add the colony size again. The
  * bonus has its own modifier id, so the industry's own apply() leaves it alone, as with vanilla's farmland.
  */

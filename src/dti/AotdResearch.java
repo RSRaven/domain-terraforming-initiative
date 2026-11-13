@@ -79,7 +79,7 @@ final class AotdResearch {
     }
 
     /**
-     * The AoTD workshop (special-items.md, Sources): a faction that finishes a DTI tech learns its items. Also, on every
+     * The AoTD workshop: a faction that finishes a DTI tech learns its items. Also, on every
      * load and settings change, the player learns the items of every structure already unlocked: old saves, DTI_Unlock
      * and "Unlock without AoTD research". A flag once set stays, as AoTD's own.
      */

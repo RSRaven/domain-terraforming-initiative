@@ -12,20 +12,20 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The rows of the "DTI Projects" Intel entry (docs/features/projects-overview.md): which rows a filter shows and in what
+ * The rows of the "DTI Projects" Intel entry: which rows a filter shows and in what
  * order. Fed plain values, so it runs without the game.
  */
 public final class Overview {
     private Overview() {}
 
     /**
-     * The state filter. PROBLEMS: stopped, going back and waiting together. STOPPED and GOING_BACK lost their buttons on
-     * 2026-11-09 (the line shows the state); they stay only so a save that chose one still loads, and ProjectsIntel turns
+     * The state filter. PROBLEMS: stopped, going back and waiting together. STOPPED and GOING_BACK lost their buttons in
+     * 0.4.0 (the line shows the state); they stay only so a save that chose one still loads, and ProjectsIntel turns
      * them into PROBLEMS.
      */
     public enum StateFilter { ALL, RUNNING, STOPPED, GOING_BACK, PROBLEMS }
 
-    /** The group filter: the content area (ADR 0011). */
+    /** The group filter: the content area. */
     public enum Group { ALL, TERRAFORMING, COLONY }
 
     /** END: closest to its end first. */
@@ -86,7 +86,7 @@ public final class Overview {
     }
 
     /**
-     * The only condition icons on a colony line (projects-overview.md, 2026-11-09): what a DTI building can work on. A
+     * The only condition icons on a colony line: what a DTI building can work on. A
      * project's condition, what it adds and removes, and what a support building cancels.
      */
     public static Set<String> changeable(Collection<? extends ProjectRow> projects, Collection<Set<String>> cancelled) {
@@ -102,7 +102,7 @@ public final class Overview {
     }
 
     /**
-     * The shown rows in boxes, one per colony (projects-overview.md, layout A): the colonies in the order of their first
+     * The shown rows in boxes, one per colony: the colonies in the order of their first
      * row, each with its rows in order. Two colonies with one name stay apart: the key is the market id.
      */
     public static Map<String, List<Row>> byColony(List<Row> sorted) {

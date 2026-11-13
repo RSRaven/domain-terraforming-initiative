@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The extraction fallout (docs/features/reverse-projects.md): an extractor removed before its deposit is gone leaves
+ * The extraction fallout: an extractor removed before its deposit is gone leaves
  * pollution and toxic atmosphere ({@link Extraction#afterFallout}), then the type ladder runs as after any project. The
  * colony's Project Trouble gets a stability penalty until the pollution is gone ({@link TerraformingTrouble}).
  * <p>
@@ -65,6 +65,7 @@ public class ExtractionFallout implements EveryFrameScript {
         done = true;
         Set<String> before = Terraform.conditionIds(market), after = Extraction.afterFallout(before);
         String oldType = market.getPlanetEntity() == null ? "" : market.getPlanetEntity().getTypeId();
+        PlanetIntel.typeBefore(market, oldType);
         for (String c : before) {
             if (!after.contains(c)) Terraform.removeCondition(market, c);
         }

@@ -7,7 +7,7 @@ import dti.Terraform;
 import dti.logic.Support;
 
 /**
- * Hydroponic Farms (docs/features/hydroponic-farms.md): an industry that makes food on a colony that cannot farm. Food is
+ * Hydroponic Farms: an industry that makes food on a colony that cannot farm. Food is
  * the colony size -2; it needs heavy machinery equal to the colony size, as the base game's food industries. Offered only
  * with no farmland and no water surface; once built it keeps working if a project adds farmland later.
  */

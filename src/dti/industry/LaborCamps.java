@@ -17,7 +17,7 @@ import dti.logic.CampEffects;
 import java.util.Map;
 
 /**
- * Labor Camps (docs/features/colony-development.md): a permanent building, no project. While it stands, the colony's
+ * Labor Camps: a permanent building, no project. While it stands, the colony's
  * upkeep goes down and its growth up, at a cost in stability and Luddic Path interest. While any of its goods is
  * short, the upkeep cut and the growth bonus stop and the colony protests ({@link CampEffects}). AI cores work as in vanilla.
  * The player can shut it down at no cost; it closes by itself when its condition is gone.
