@@ -73,8 +73,9 @@ Inspired by **DIY Planets** (kentington, now the community edition) and **Terraf
 
 ## AI use
 
-- Art (building pictures, item icons, tech icons and condition icons): Gemini Flash in the Gemini web app, Gemini 3 Flash or 3.5 Flash (the web app does not show which).
+- Art (building pictures, item icons, tech icons, and condition icons): Gemini Flash in the Gemini web app, Gemini 3.5 Flash.
 - Texts: Claude Opus 5.5, as a text helper that helped proofread and fix issues in the texts.
+- Code: Claude Opus 5.5, as a code helper that helped write most of the code and configs.
 
 No extra training data was used.
 
