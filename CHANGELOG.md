@@ -6,7 +6,7 @@
 - **Planet history** is easier to read: the date, a title, then one line for each change.
 - **Achievements** (with MagicLib; DTI still runs without it): World Shaper, Second Terra, and two hidden ones.
 - **Ecology events:** sometimes a long project gets an event with a choice, in the Terraforming tab of the Intel screen: 16 events, good, bad and disasters. After you finish 3 projects of a structure, its crews know the work: disasters are rarer, good news more common, and the costs lower. With no answer in 30 days, the last choice applies. A LunaLib setting turns them off.
-- **Eridani-Utopia contracts:** after your first terraforming project, an official of a faction that likes you (standing above +30) can ask you at a bar to fix a condition of their world. Bring a big cargo of goods, in parts if you like: they pay you when the last part arrives, and the work ends some months later. With AoTD, a contract asks AoTD goods only when one of your colonies makes them.
+- **Terraforming contracts:** your colonies are not the only worlds that need terraforming, and some people will pay for the work. Finding them is up to you.
 - Console commands for tests: `dti_event` and `dti_contract`.
 
 ## 0.4.3

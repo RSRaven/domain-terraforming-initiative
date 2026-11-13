@@ -4,7 +4,7 @@
 
 A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming Control on a colony, then run long projects that change the world's conditions and, in the end, its planet type.
 
-**This is a test version.** It has every terraforming structure, but not the quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues) or in the [forum thread](https://fractalsoftworks.com/forum/index.php?topic=36308.0).
+**This is a test version.** It has every terraforming structure, but not the unlock quests yet. Please report bugs and ideas in the [issues](https://github.com/RSRaven/domain-terraforming-initiative/issues) or in the [forum thread](https://fractalsoftworks.com/forum/index.php?topic=36308.0).
 
 ## What it adds
 
@@ -16,7 +16,7 @@ A Starsector 0.98a mod. Terraforming is a megaproject: you build a Terraforming 
 - **DTI Projects** in the Intel screen (Terraforming tag): every running project, by colony.
 - **Planet history:** each planet with a Terraforming Control gets an entry in the same tab, with DTI's events and their dates. When a world changes its type, the entry shows the old and the new planet side by side. It stays when you lose the colony, and you can delete it.
 - **Ecology events:** sometimes a long project gets an event with a choice, good or bad, and now and then a disaster. Crews that finished 3 projects of a structure know the work: fewer disasters, more good news, lower costs.
-- **Eridani-Utopia contracts:** after your first terraforming project, an official of a faction that likes you can ask you at a bar to fix a condition of their world. Bring the goods, in parts if you like, and get paid when the last part arrives.
+- **Terraforming contracts:** your colonies are not the only worlds that need terraforming, and some people will pay for the work. Finding them is up to you.
 - **The Captive Sun** lights a dark world with a small star of its own.
 - **Settings** in LunaLib: switch terraforming or Colony Development off, turn single kinds of projects off, and change the numbers.
 
@@ -40,7 +40,7 @@ Tested with Nexerelin, AoTD, DIY Planets and TaSC.
 
 ## How to unlock the structures
 
-The quests are not in the mod yet.
+The unlock quests are not in the mod yet.
 - **With AoTD:** research the techs on the DTI tab.
 - **Without AoTD:** every structure is unlocked from the start. The LunaLib setting **Unlock without quests** (DTI, General tab) does this, and it is on by default until the quests are in the mod.
 
